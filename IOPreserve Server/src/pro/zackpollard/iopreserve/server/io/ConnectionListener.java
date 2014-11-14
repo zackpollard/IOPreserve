@@ -1,5 +1,6 @@
 package pro.zackpollard.iopreserve.server.io;
 
+import pro.zackpollard.iopreserve.server.utils.DataStore;
 import pro.zackpollard.iopreserve.server.utils.Logger;
 
 import java.io.IOException;
@@ -12,6 +13,13 @@ import java.net.Socket;
  **/
 
 public class ConnectionListener implements Runnable {
+
+    private DataStore authedServers;
+
+    public ConnectionListener(DataStore authedServers) {
+
+        this.authedServers = authedServers;
+    }
 
     public void run() {
 
@@ -36,7 +44,7 @@ public class ConnectionListener implements Runnable {
 
                 Logger.log(Logger.LoggerLevel.ERROR, "There was an error when accepting the connection from the ServerSocket.", e);
             }
-            new ConnectionHandler(socket);
+            new ConnectionHandler(socket, authedServers);
         }
     }
 }
