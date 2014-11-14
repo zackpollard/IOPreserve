@@ -1,6 +1,5 @@
 package pro.zackpollard.iopreserve.server.io;
 
-import java.net.ServerSocket;
 import java.net.Socket;
 
 public class ConnectionHandler {
