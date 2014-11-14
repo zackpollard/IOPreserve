@@ -1,7 +1,6 @@
 package pro.zackpollard.iopreserve.server;
 
-import pro.zackpollard.iopreserve.server.config.Config;
-import pro.zackpollard.iopreserve.server.config.ConfigException;
+import pro.zackpollard.iopreserve.server.io.ConnectionListener;
 
 /**
  * @Author zack
@@ -9,29 +8,16 @@ import pro.zackpollard.iopreserve.server.config.ConfigException;
  **/
 public class IOPreserveServer {
 
-    Config config;
-
     public void main(String[] args) {
 
         if(args.length == 0) {
 
-
+            initListener();
         }
     }
 
-    public void initServer() {
+    public void initListener() {
 
-
-    }
-
-    public initiateConfig() {
-
-        try {
-
-            Config config = new Config("iopreserveserver.config");
-        } catch(ConfigException e) {
-
-
-        }
+        new Thread(new ConnectionListener()).start();
     }
 }
