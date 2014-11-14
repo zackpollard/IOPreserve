@@ -7,8 +7,10 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 /**
- * Created by zack on 14/11/14.
- */
+ * @Author zack
+ * @Date 14/11/14.
+ **/
+
 public class ConnectionListener implements Runnable {
 
     public void run() {
@@ -17,7 +19,7 @@ public class ConnectionListener implements Runnable {
 
         try {
 
-            serverSocket = new ServerSocket(8123);
+            serverSocket = new ServerSocket(8123, 100);
         } catch (IOException e) {
 
             Logger.log(Logger.LoggerLevel.FATAL, "The server was not able to open the socket set in the config, is it already in use?", e);
