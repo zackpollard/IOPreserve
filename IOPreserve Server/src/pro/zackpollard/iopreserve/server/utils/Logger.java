@@ -2,7 +2,7 @@ package pro.zackpollard.iopreserve.server.utils;
 
 public class Logger {
 
-    private boolean debug = false;
+    private static boolean debug = false;
 
     /**
      * Log with the required level and can provide a message.
@@ -10,9 +10,9 @@ public class Logger {
      * @param level   The LoggerLevel of that message, will be reflected in the logger output.
      * @param message The message that should accompany the logger level in the output.
      */
-    public void log(LoggerLevel level, String message) {
+    public static void log(LoggerLevel level, String message) {
 
-        this.log(level, message, null);
+        Logger.log(level, message, null);
     }
 
     /**
@@ -22,7 +22,7 @@ public class Logger {
      * @param message The message that should accompany the logger level in the output.
      * @param e       The exception that was provided with that error, is not required.
      */
-    public void log(LoggerLevel level, String message, Exception e) {
+    public static void log(LoggerLevel level, String message, Exception e) {
 
         switch (level) {
             case INFO:
@@ -32,14 +32,14 @@ public class Logger {
             case ALERT:
                 System.out.println("ALERT: " + message);
             case ERROR:
-                this.printException(e);
+                Logger.printException(e);
                 System.out.println("ERROR: " + message);
             case FATAL:
-                this.printException(e);
+                Logger.printException(e);
                 System.out.println("FATAL: " + message);
             case DEBUG:
-                if (this.getDebug()) {
-                    this.printException(e);
+                if (Logger.getDebug()) {
+                    Logger.printException(e);
                     System.out.println("DEBUG: " + message);
                 }
         }
@@ -50,7 +50,7 @@ public class Logger {
      *
      * @param e The exception that is to be handled and printed, is nullable.
      */
-    private void printException(Exception e) {
+    private static void printException(Exception e) {
 
         if (e != null) {
 
@@ -63,9 +63,9 @@ public class Logger {
      *
      * @return the new debug state.
      */
-    public boolean toggleDebug() {
+    public static boolean toggleDebug() {
 
-        return this.debug = !this.debug;
+        return Logger.debug = !Logger.debug;
     }
 
     /**
@@ -73,14 +73,14 @@ public class Logger {
      *
      * @return the current debug state.
      */
-    public boolean getDebug() {
+    public static boolean getDebug() {
 
         return debug;
     }
 
-    public void setDebug(boolean debug) {
+    public static void setDebug(boolean debug) {
 
-        this.debug = debug;
+        Logger.debug = debug;
     }
 
     /**
