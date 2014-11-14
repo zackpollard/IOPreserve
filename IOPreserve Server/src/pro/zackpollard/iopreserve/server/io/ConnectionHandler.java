@@ -1,16 +1,14 @@
 package pro.zackpollard.iopreserve.server.io;
 
 import java.net.ServerSocket;
+import java.net.Socket;
 
-/**
- * Created by zack on 14/11/14.
- */
 public class ConnectionHandler {
 
-    ServerSocket serverSocket;
+    Socket socket;
 
-    public ConnectionHandler() {
+    public ConnectionHandler(Socket socket) {
 
-        serverSocket
+        this.socket = socket;
     }
 }
