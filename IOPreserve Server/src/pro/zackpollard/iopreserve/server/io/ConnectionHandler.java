@@ -36,7 +36,7 @@ public class ConnectionHandler implements Runnable {
 
             String inputLine;
 
-            while((inputLine = in.readLine()) != null && running) {
+            while ((inputLine = in.readLine()) != null && running) {
 
                 if (authenticated) {
 
@@ -58,7 +58,7 @@ public class ConnectionHandler implements Runnable {
                     //Commands here!
                 }
             }
-        } catch(IOException e) {
+        } catch (IOException e) {
 
             Logger.log(Logger.LoggerLevel.ERROR, "Something went wrong and the input or output stream could not be retrieved for a client.", e);
         }

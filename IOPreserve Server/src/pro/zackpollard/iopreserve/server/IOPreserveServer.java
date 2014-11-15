@@ -6,7 +6,7 @@ import pro.zackpollard.iopreserve.server.utils.DataStore;
 /**
  * @Author zack
  * @Date 14/11/14.
- **/
+ */
 
 public class IOPreserveServer {
 
@@ -14,7 +14,7 @@ public class IOPreserveServer {
 
     public void main(String[] args) {
 
-        if(args.length == 0) {
+        if (args.length == 0) {
 
             initListener();
         }

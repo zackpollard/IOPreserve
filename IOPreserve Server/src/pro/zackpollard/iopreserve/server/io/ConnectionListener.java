@@ -10,7 +10,7 @@ import java.net.Socket;
 /**
  * @Author zack
  * @Date 14/11/14.
- **/
+ */
 
 public class ConnectionListener implements Runnable {
 
@@ -34,7 +34,7 @@ public class ConnectionListener implements Runnable {
             System.exit(-1);
         }
 
-        while(true) {
+        while (true) {
 
             Socket socket = null;
             try {
